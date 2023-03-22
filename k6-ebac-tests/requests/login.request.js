@@ -19,11 +19,16 @@ export default class Login {
         })
         this.#token = response.json('accessToken')
         check(response, {
-            "is status 201": (r) => r.status === 201
+            "login deve retornar 201": (r) => r.status === 201
         })
     }
 
     getToken() {
+        return this.#token
+    }
+
+    accessAndGetToken(user, password) {
+        this.access(user, password)
         return this.#token
     }
 }

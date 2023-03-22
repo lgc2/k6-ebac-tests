@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: {
-        user: './simulations/user.test.js',
+        products: './simulations/products.test.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'), // eslint-disable-line
