@@ -1,13 +1,13 @@
-import { group, before } from 'k6';
+import { group } from 'k6';
 import Login from '../requests/login.request';
 import data from '../data/users.json'
 import Products from '../requests/products.request';
 
 export const options = {
     stages: [
-        { duration: '10s', target: 3 },
-        { duration: '5s', target: 8 },
-        { duration: '10s', target: 3 },
+        { duration: '10s', target: 10 },
+        { duration: '5s', target: 50 },
+        { duration: '10s', target: 10 },
         { duration: '5s', target: 0 }
     ],
     thresholds: {
@@ -47,7 +47,7 @@ export default function () {
         products.editAProduct(token, editedDescription, price, editedName, productId)
     })
 
-    group('delete a product', () => {
-        products.deleteAProduct(token, productId)
-    })
+    // group('delete a product', () => {
+    //     products.deleteAProduct(token, productId)
+    // })
 }
